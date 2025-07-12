@@ -32,8 +32,8 @@ export default function LoginPage() {
     const { role } = jwtDecode<TokenPayload>(token);
     if (role === 'ResponsableAgence') {
       router.push('/ra/dashboard');
-    } else {
-      router.push('/');
+    } else if (role === 'ChargeAffaires') {
+      router.push('/caffaires/dashboard');
     }
   };
 
