@@ -5,16 +5,16 @@ import { jwtDecode } from 'jwt-decode';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
-type TokenPayload = { role: string };
+type TokenPayload = { role: string};
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [motDePasse, setMotDePasse] = useState('');
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch(
       'http://localhost:5268/Auth/login',

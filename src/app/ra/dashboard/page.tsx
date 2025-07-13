@@ -4,9 +4,9 @@ import { jwtDecode } from 'jwt-decode';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-type Payload = { role: string };
+export type Payload = { role: string };
 
-export default function RADashboardPage() {
+const RADashboardPage = () => {
   const router = useRouter();
   const [ok, setOk] = useState(false);
 
@@ -33,3 +33,5 @@ export default function RADashboardPage() {
     </div>
   );
 }
+
+export default RADashboardPage;
