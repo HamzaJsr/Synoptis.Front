@@ -30,11 +30,12 @@ export default function LoginPage() {
     }
     localStorage.setItem('synoptis_token', token);
     const { role } = jwtDecode<TokenPayload>(token);
-    if (role === 'ResponsableAgence') {
-      router.push('/ra/dashboard');
-    } else if (role === 'ChargeAffaires') {
-      router.push('/caffaires/dashboard');
-    }
+    router.push('/dashboard/aoffres')
+    // if (role === 'ResponsableAgence') {
+    //   router.push('/ra/dashboard');
+    // } else if (role === 'ChargeAffaires') {
+    //   router.push('/caffaires/dashboard');
+    // }
   };
 
   return (
