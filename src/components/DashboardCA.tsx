@@ -18,7 +18,7 @@ export default function DashboardCA({ userId }: Props) {
   useEffect(() => {
     (async () => {
       // charge l'utilisateur complet
-      const res = await fetch(`http://localhost:5268/user/${userId}`);
+      const res = await fetch(`http://192.168.1.182:5268/user/${userId}`);
       const data = await res.json() as {
         responsable: UserShortDTO;
         collegues: UserShortDTO[];

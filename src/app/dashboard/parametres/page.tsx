@@ -18,10 +18,10 @@ export default function ParametresPage() {
       return;
     }
     const { role, nameid } = jwtDecode<Payload>(token);
-    if (role !== 'ChargeAffaires') {
-      router.push('/login');
-      return;
-    }
+    // if (role !== 'ChargeAffaires') {
+    //   router.push('/login');
+    //   return;
+    // }
     // charger les settings depuis l'API…
     setLoading(false);
   }, [router]);

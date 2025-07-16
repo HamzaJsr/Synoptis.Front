@@ -17,7 +17,10 @@ export default function DashboardRA({ userId }: Props) {
   useEffect(() => {
     (async () => {
       // charge l'utilisateur complet pour récupérer son équipe et ses AO
-      const res = await fetch(`http://localhost:5268/user/${userId}`);
+      const res = await fetch(`/api/user/${userId}`, {
+         // Empêche Safari de renvoyer une réponse cachée
+        cache: 'no-store',
+      });
       const data = await res.json() as {
         collaborateurs: UserShortDTO[];
         appelOffres: AppelOffreShortDTO[];
@@ -28,7 +31,7 @@ export default function DashboardRA({ userId }: Props) {
   }, [userId]);
 
   return (
-    <div className="space-y-6">
+    <div className="w-full space-y-6 border-4 border-blue-500">
       <header className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Tableau de bord RA</h1>
         <Link
@@ -43,7 +46,7 @@ export default function DashboardRA({ userId }: Props) {
         <h2 className="text-2xl font-semibold mb-2">Mes collaborateurs</h2>
         <ul className="space-y-1">
           {collaborateurs.map(c => (
-            <li key={c.id} className="p-2 bg-gray-800 rounded">
+            <li key={c.id} className="p-2 bg-gray-800 rounded text-white">
               {c.nom} – {c.email}
             </li>
           ))}
@@ -57,7 +60,7 @@ export default function DashboardRA({ userId }: Props) {
             <li key={ao.id}>
               <Link 
                 href={`/dashboard/aoffres/${ao.id}`}
-                className="block p-4 bg-gray-800 rounded hover:bg-gray-700"
+                className="block p-4 bg-gray-800 rounded hover:bg-gray-700 text-white"
               >
                 <strong>{ao.titre}</strong> – {ao.nomClient}
               </Link>

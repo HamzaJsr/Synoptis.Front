@@ -25,7 +25,7 @@ export default function EquipePage() {
     setRole(role);
 
     (async () => {
-      const res  = await fetch(`http://localhost:5268/user/${nameid}`);
+      const res  = await fetch(`http://192.168.1.182:5268/user/${nameid}`);
       const data = (await res.json()) as UserResponseDTO;
 
       setResponsable(data.responsable ?? null);
