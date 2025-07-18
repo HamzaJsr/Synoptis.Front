@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Contenu principal */}
         {isDashboard ? (
           // Pour les routes /dashboard : on laisse le children gérer le flex (via DashboardLayout)
-          <div className="flex flex-1 w-full border-4 border-green-500">
+          <div className="flex flex-1 w-full">
             {children}
           </div>
         ) : (

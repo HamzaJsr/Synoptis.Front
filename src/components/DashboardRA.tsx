@@ -31,9 +31,9 @@ export default function DashboardRA({ userId }: Props) {
   }, [userId]);
 
   return (
-    <div className="w-full space-y-6 border-4 border-blue-500">
+    <div className="w-full space-y-6">
       <header className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Tableau de bord RA</h1>
+        <h1 className="text-3xl font-bold">Tableau de bord : Responsable d'agence</h1>
         <Link
           href="/dashboard/aoffres/new"
           className="px-4 py-2 bg-green-500 rounded text-white hover:bg-green-600"
@@ -55,7 +55,7 @@ export default function DashboardRA({ userId }: Props) {
 
       <section>
         <h2 className="text-2xl font-semibold mb-2">Tous mes appels d’offres</h2>
-        <ul className="space-y-2">
+        <ul className="space-y-2 grid grid-cols-4 gap-1.5">
           {offers.map(ao => (
             <li key={ao.id}>
               <Link 
