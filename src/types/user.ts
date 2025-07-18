@@ -7,6 +7,13 @@ export interface UserShortDTO {
   role: string;
 }
 
+export interface UserBasicDTO {
+  id: string;
+  nom: string;
+  email: string;
+  role: string;
+}
+
 export interface UserResponseDTO {
   id: string;
   nom: string;

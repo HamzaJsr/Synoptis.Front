@@ -2,6 +2,7 @@
 
 import Sidebar from '@/components/Sidebar';
 import { ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -14,6 +15,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <Sidebar/>
 
       <main className="flex-1 min-w-0 p-8 overflow-y-auto bg-gray-200">
+        <Toaster position="top-center" reverseOrder={false} />
         {children}
       </main>
     </div>
