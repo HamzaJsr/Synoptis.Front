@@ -11,13 +11,13 @@ interface Props { userId: string; }
 
 export default function DashboardRA({ userId }: Props) {
   const [collaborateurs, setCollaborateurs] = useState<UserShortDTO[]>([]);
-  const [offers, setOffers]               = useState<AppelOffreShortDTO[]>([]);
+  const [offers, setOffers] = useState<AppelOffreShortDTO[]>([]);
   const router = useRouter();
 
   useEffect(() => {
     (async () => {
       // charge l'utilisateur complet pour récupérer son équipe et ses AO
-      const res = await fetch(`/api/user/${userId}`, {
+      const res = await fetch(`/api/users/${userId}`, {
          // Empêche Safari de renvoyer une réponse cachée
         cache: 'no-store',
       });
