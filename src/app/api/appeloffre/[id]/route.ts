@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export async function GET(
   request: Request, {params}: {params: {id: string}}
 ) {
-  const { id } = params;
+  const { id } = await params;
 
   // On relaie vers ton back .NET
   const res = await fetch(`http://localhost:5268/AppelOffre/${id}`);
